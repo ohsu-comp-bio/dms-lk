@@ -1,0 +1,91 @@
+<query xmlns="http://labkey.org/data/xml/query">
+  <metadata>
+        <tables xmlns="http://labkey.org/data/xml">
+            <table tableName="" tableDbType="TABLE" useColumnOrder="true">
+                <javaCustomizer>org.labkey.beataml.DefaultBeatAMLCustomizer</javaCustomizer>
+                <pkColumnName>lsid</pkColumnName>
+                <columns>
+                    <column columnName="lsid">
+                        <isKeyField>true</isKeyField>
+                        <shownInDetailsView>false</shownInDetailsView>
+                        <facetingBehavior>ALWAYS_OFF</facetingBehavior>
+                    </column>
+                    <column columnName="patientId">
+                        <phi>PHI</phi>
+                    </column>
+                    <column columnName="malignancyId">
+                        <fk>
+                            <fkDbSchema>study</fkDbSchema>
+                            <fkTable>malignancies</fkTable>
+                            <fkColumnName>malignancyId</fkColumnName>
+                        </fk>
+                    </column>
+                    <column columnName="sampleId">
+                        <isHidden>false</isHidden>
+                        <fk>
+                            <fkDbSchema>study</fkDbSchema>
+                            <fkTable>samples</fkTable>
+                            <fkColumnName>sampleId</fkColumnName>
+                        </fk>
+                    </column>
+                    <column columnName="readsetId">
+                        <fk>
+                            <fkDbSchema>sequenceanalysis</fkDbSchema>
+                            <fkTable>sequence_readsets</fkTable>
+                            <fkColumnName>rowid</fkColumnName>
+                        </fk>
+                    </column>
+                    <column columnName="date">
+                        <formatString>yyyy-MM-dd HH:mm</formatString>
+                    </column>
+                    <column columnName="QCState">
+                        <isHidden>true</isHidden>
+                        <shownInDetailsView>true</shownInDetailsView>
+                        <columnTitle>Status</columnTitle>
+                        <displayWidth>50</displayWidth>
+                    </column>
+                    <column columnName="patientvisit">
+                        <isHidden>true</isHidden>
+                    </column>
+                    <column columnName="sequencenum">
+                        <isHidden>true</isHidden>
+                    </column>
+                    <column columnName="created">
+                        <isHidden>true</isHidden>
+                        <formatString>yyyy-MM-dd HH:mm</formatString>
+                    </column>
+                    <column columnName="createdby">
+                        <isHidden>true</isHidden>
+                    </column>
+                    <column columnName="modified">
+                        <isHidden>true</isHidden>
+                        <formatString>yyyy-MM-dd HH:mm</formatString>
+                    </column>
+                    <column columnName="modifiedby">
+                        <isHidden>true</isHidden>
+                    </column>
+                    <column columnName="ParticipantSequenceNum">
+                        <shownInInsertView>false</shownInInsertView>
+                    </column>
+                    <column columnName="_key">
+                        <shownInInsertView>false</shownInInsertView>
+                    </column>
+                </columns>
+                <buttonBarOptions position="both" includeStandardButtons="true">
+                    <item hidden="true">
+                        <originalText>Insert New</originalText>
+                    </item>
+                    <item hidden="true">
+                        <originalText>View Specimens</originalText>
+                    </item>
+                    <item hidden="true">
+                        <originalText>QC State</originalText>
+                    </item>
+                    <item hidden="true">
+                        <originalText>Manage Dataset</originalText>
+                    </item>
+                </buttonBarOptions>
+            </table>
+        </tables>
+    </metadata>
+</query>

@@ -1,0 +1,78 @@
+<script type="text/javascript">
+    Ext4.onReady(function (){
+        /* get the participant id from the request URL: this parameter is required. */
+        var participantId = LABKEY.ActionURL.getParameter('participantId');
+        if (!participantId){
+            alert('Must Provide Id');
+            return;
+        }
+
+        var title = 'Patient Details: ' + participantId;
+        document.title = title;
+
+        Ext4.define('BeatAML.panel.TabbedReportPanel', {
+            extend: 'LDK.panel.TabbedReportPanel',
+
+            initComponent: function(){
+                Ext4.ns('BeatAML.tabbedReports');
+
+                Ext4.apply(this, {
+                    //defaultReport: 'abstract',
+                    reportNamespace: BeatAML.tabbedReports
+                });
+
+                this.callParent();
+
+                this.loadReports();
+            },
+
+            loadReports: function(){
+                this.reports = [
+                    this.getReportConfig('samples', 'study', 'Clinical', 'Samples'),
+                    this.getReportConfig('malignancies', 'study', 'Clinical', 'Malignancies'),
+                    this.getReportConfig('demographics', 'study', 'Clinical', 'Demographics'),
+                    this.getReportConfig('wgs', 'study', 'Genomics', 'Whole Genome Data'),
+                    this.getReportConfig('rnaseq', 'study', 'Genomics', 'RNA-Seq')
+                ];
+
+                this.reports = LDK.Utils.sortByProperty(this.reports, 'name', false);
+                this.reports = LDK.Utils.sortByProperty(this.reports, 'reportCategory', false);
+
+                this.createTabPanel();
+            },
+
+            filterTypes: [{
+                xtype: 'ldk-singlesubjectfiltertype',
+                inputValue: LDK.panel.SingleSubjectFilterType.filterName,
+                label: 'Patient',
+                nounSingular: 'Single Patient'
+            },{
+                xtype: 'ldk-multisubjectfiltertype',
+                inputValue: LDK.panel.MultiSubjectFilterType.filterName,
+                label: 'Multiple Patients',
+                nounSingular: 'Patient'
+            },{
+                xtype: 'ldk-nofiltersfiltertype',
+                inputValue: LDK.panel.NoFiltersFilterType.filterName,
+                label: LDK.panel.NoFiltersFilterType.label
+            }],
+
+            getReportConfig: function(queryName, schemaName, category, title){
+                return {
+                    id: queryName,
+                    name: queryName,
+                    category: category,
+                    schemaName: 'study',
+                    queryName: queryName,
+                    label: title,
+                    reportType: 'query',
+                    subjectFieldName: 'patientId',
+                    dateFieldName: 'patientId'
+                };
+            }
+        });
+
+        Ext4.create('BeatAML.panel.TabbedReportPanel').render('participantDiv');
+    });
+</script>
+<div id="participantDiv"></div>
