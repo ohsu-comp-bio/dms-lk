@@ -1,15 +1,5 @@
 <script type="text/javascript">
     Ext4.onReady(function (){
-        /* get the participant id from the request URL: this parameter is required. */
-        var participantId = LABKEY.ActionURL.getParameter('participantId') || LABKEY.ActionURL.getParameter('patientId');
-        if (!participantId){
-            alert('Must Provide Id');
-            return;
-        }
-
-        var title = 'Patient Details: ' + participantId;
-        document.title = title;
-
         Ext4.define('BeatAML.panel.TabbedReportPanel', {
             extend: 'LDK.panel.TabbedReportPanel',
 
@@ -24,16 +14,7 @@
 
                 this.callParent();
 
-                this.down('#submitBtn').hidden = true;
                 this.loadReports();
-            },
-
-            getFilterOptionsItems: function(){
-                var items = this.callParent();
-                items[0].hidden = true;
-                items[1].hidden = true;
-
-                return items;
             },
 
             loadReports: function(){
@@ -54,9 +35,17 @@
             filterTypes: [{
                 xtype: 'ldk-singlesubjectfiltertype',
                 inputValue: LDK.panel.SingleSubjectFilterType.filterName,
-                label: 'Single Participant',
-                hidden: true,
-                initialValue: participantId
+                label: 'Single Patient',
+                nounSingular: 'Patient'
+            },{
+                xtype: 'ldk-multisubjectfiltertype',
+                inputValue: LDK.panel.MultiSubjectFilterType.filterName,
+                label: 'Multiple Patients',
+                nounSingular: 'Patient'
+            },{
+                xtype: 'ldk-nofiltersfiltertype',
+                inputValue: LDK.panel.NoFiltersFilterType.filterName,
+                label: LDK.panel.NoFiltersFilterType.label
             }],
 
             getReportConfig: function(queryName, schemaName, category, title){
