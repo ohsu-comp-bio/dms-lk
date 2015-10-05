@@ -1,7 +1,7 @@
 <script type="text/javascript">
     Ext4.onReady(function (){
         /* get the participant id from the request URL: this parameter is required. */
-        var participantId = LABKEY.ActionURL.getParameter('participantId');
+        var participantId = LABKEY.ActionURL.getParameter('participantId') || LABKEY.ActionURL.getParameter('patientId');
         if (!participantId){
             alert('Must Provide Id');
             return;
@@ -44,8 +44,8 @@
             filterTypes: [{
                 xtype: 'ldk-singlesubjectfiltertype',
                 inputValue: LDK.panel.SingleSubjectFilterType.filterName,
-                label: 'Patient',
-                nounSingular: 'Single Patient'
+                label: 'Single Patient',
+                nounSingular: 'Patient'
             },{
                 xtype: 'ldk-multisubjectfiltertype',
                 inputValue: LDK.panel.MultiSubjectFilterType.filterName,

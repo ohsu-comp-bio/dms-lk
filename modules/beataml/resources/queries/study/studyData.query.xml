@@ -12,6 +12,7 @@
                     </column>
                     <column columnName="patientId">
                         <phi>PHI</phi>
+                        <!--<url>/beataml/participant.view?patientId=${patientId}</url>-->
                     </column>
                     <column columnName="malignancyId">
                         <fk>
