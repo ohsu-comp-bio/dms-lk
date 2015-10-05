@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<studyqc xmlns="http://labkey.org/study/xml/qcStates">
+  <showPrivateDataByDefault>true</showPrivateDataByDefault>
+  <blankQCStatePublic>false</blankQCStatePublic>
+  <pipelineImportDefault>Final</pipelineImportDefault>
+  <assayDataDefault>Final</assayDataDefault>
+  <insertUpdateDefault>Final</insertUpdateDefault>
+  <qcstates>
+    <qcstate name="Final" description="" public="true"/>
+  </qcstates>
+</studyqc>

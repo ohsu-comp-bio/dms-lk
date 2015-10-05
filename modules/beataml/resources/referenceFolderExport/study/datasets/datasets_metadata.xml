@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tables xmlns="http://labkey.org/data/xml">
+  <table tableName="malignancies" tableDbType="TABLE">
+    <description>Contains up to one row of malignancies data for each Patient/Date/malignancyId combination.</description>
+    <columns>
+      <column columnName="patientId">
+        <datatype>varchar</datatype>
+        <columnTitle>Patient Id</columnTitle>
+        <description>Subject identifier</description>
+        <propertyURI>http://cpas.labkey.com/Study#ParticipantId</propertyURI>
+        <nullable>false</nullable>
+        <importAliases>
+          <importAlias>ptid</importAlias>
+        </importAliases>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>Patient</fkTable>
+          <fkColumnName>patientId</fkColumnName>
+        </fk>
+        <phi>PHI</phi>
+      </column>
+      <column columnName="malignancyId">
+        <datatype>integer</datatype>
+        <columnTitle>Malignancy Id</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#int</rangeURI>
+        <isHidden>true</isHidden>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>malignancies</fkTable>
+          <fkColumnName>malignancyId</fkColumnName>
+        </fk>
+        <isKeyField>true</isKeyField>
+        <isAutoInc>true</isAutoInc>
+      </column>
+      <column columnName="date">
+        <datatype>timestamp</datatype>
+        <columnTitle>Date</columnTitle>
+        <propertyURI>http://cpas.labkey.com/Study#VisitDate</propertyURI>
+        <conceptURI>http://cpas.labkey.com/Study#VisitDate</conceptURI>
+        <nullable>false</nullable>
+        <formatString>yyyy-MM-dd HH:mm</formatString>
+      </column>
+      <column columnName="diagnosis">
+        <datatype>varchar</datatype>
+        <columnTitle>Diagnosis</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="diagnosisDate">
+        <datatype>timestamp</datatype>
+        <columnTitle>Diagnosis Date</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#dateTime</rangeURI>
+      </column>
+      <column columnName="diagnosisDateAdded">
+        <datatype>timestamp</datatype>
+        <columnTitle>Diagnosis Date Added</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#dateTime</rangeURI>
+      </column>
+      <column columnName="diagnosisDateCertainty">
+        <datatype>varchar</datatype>
+        <columnTitle>Diagnosis Date Certainty</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="comment">
+        <datatype>varchar</datatype>
+        <inputType>textarea</inputType>
+        <columnTitle>Comment</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#multiLine</rangeURI>
+      </column>
+    </columns>
+    <tableTitle>Malignancies</tableTitle>
+  </table>
+  <table tableName="samples" tableDbType="TABLE">
+    <description>Contains up to one row of samples data for each Patient/Date/sampleId combination.</description>
+    <titleColumn>sampleId</titleColumn>
+    <columns>
+      <column columnName="patientId">
+        <datatype>varchar</datatype>
+        <columnTitle>Patient Id</columnTitle>
+        <description>Subject identifier</description>
+        <propertyURI>http://cpas.labkey.com/Study#ParticipantId</propertyURI>
+        <nullable>false</nullable>
+        <importAliases>
+          <importAlias>ptid</importAlias>
+        </importAliases>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>Patient</fkTable>
+          <fkColumnName>patientId</fkColumnName>
+        </fk>
+        <phi>PHI</phi>
+      </column>
+      <column columnName="malignancyId">
+        <datatype>integer</datatype>
+        <columnTitle>Malignancy Id</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#int</rangeURI>
+        <dimension>false</dimension>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>malignancies</fkTable>
+          <fkColumnName>malignancyId</fkColumnName>
+        </fk>
+      </column>
+      <column columnName="sampleId">
+        <datatype>entityid</datatype>
+        <columnTitle>Sample Id</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+        <dimension>false</dimension>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>samples</fkTable>
+          <fkColumnName>sampleId</fkColumnName>
+        </fk>
+        <isKeyField>true</isKeyField>
+      </column>
+      <column columnName="date">
+        <datatype>timestamp</datatype>
+        <columnTitle>Date</columnTitle>
+        <propertyURI>http://cpas.labkey.com/Study#VisitDate</propertyURI>
+        <conceptURI>http://cpas.labkey.com/Study#VisitDate</conceptURI>
+        <nullable>false</nullable>
+        <formatString>yyyy-MM-dd HH:mm</formatString>
+      </column>
+      <column columnName="specimenType">
+        <datatype>varchar</datatype>
+        <columnTitle>Specimen Type</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="tumorNormal">
+        <datatype>varchar</datatype>
+        <columnTitle>T/N</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="cellConcentration">
+        <datatype>varchar</datatype>
+        <columnTitle>Cell Concentration (Cells/ml)</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="cellViability">
+        <datatype>varchar</datatype>
+        <columnTitle>Cell Viability (% Viable)</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="collectionDate">
+        <datatype>timestamp</datatype>
+        <columnTitle>Collection Date</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#dateTime</rangeURI>
+      </column>
+      <column columnName="comment">
+        <datatype>varchar</datatype>
+        <columnTitle>Comment</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="dateReceived">
+        <datatype>timestamp</datatype>
+        <columnTitle>Date Received in Lab</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#dateTime</rangeURI>
+      </column>
+      <column columnName="diagnosis">
+        <datatype>varchar</datatype>
+        <columnTitle>Diagnosis</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="diagnosisDate">
+        <datatype>varchar</datatype>
+        <columnTitle>Diagnosis Date</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="diagnosisDateAdded">
+        <datatype>timestamp</datatype>
+        <columnTitle>Diagnosis Date Added</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#dateTime</rangeURI>
+      </column>
+      <column columnName="diagnosisDateCertainty">
+        <datatype>varchar</datatype>
+        <columnTitle>Diagnosis Date Certainty</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="dilutionForCellCount">
+        <datatype>varchar</datatype>
+        <columnTitle>Dilution For Cell Count</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="finalResuspensionVolume">
+        <datatype>varchar</datatype>
+        <columnTitle>Final Resuspension Volume (ml)</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="originalSpecimenLocation">
+        <datatype>varchar</datatype>
+        <columnTitle>Original Specimen Location</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="processedBy">
+        <datatype>integer</datatype>
+        <columnTitle>Processed By</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#int</rangeURI>
+        <measure>false</measure>
+      </column>
+      <column columnName="processing">
+        <datatype>varchar</datatype>
+        <columnTitle>Processing</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+    </columns>
+    <tableTitle>Samples</tableTitle>
+  </table>
+  <table tableName="demographics" tableDbType="TABLE">
+    <description>Contains up to one row of demographics data for each Patient combination.</description>
+    <columns>
+      <column columnName="patientId">
+        <datatype>varchar</datatype>
+        <columnTitle>Patient Id</columnTitle>
+        <description>Subject identifier</description>
+        <propertyURI>http://cpas.labkey.com/Study#ParticipantId</propertyURI>
+        <nullable>false</nullable>
+        <importAliases>
+          <importAlias>ptid</importAlias>
+        </importAliases>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>Patient</fkTable>
+          <fkColumnName>patientId</fkColumnName>
+        </fk>
+        <phi>PHI</phi>
+      </column>
+      <column columnName="date">
+        <datatype>timestamp</datatype>
+        <columnTitle>Date</columnTitle>
+        <propertyURI>http://cpas.labkey.com/Study#VisitDate</propertyURI>
+        <conceptURI>http://cpas.labkey.com/Study#VisitDate</conceptURI>
+        <nullable>false</nullable>
+        <formatString>yyyy-MM-dd HH:mm</formatString>
+      </column>
+      <column columnName="lastName">
+        <datatype>varchar</datatype>
+        <columnTitle>Last Name</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="firstName">
+        <datatype>varchar</datatype>
+        <columnTitle>First Name</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="ethnicity">
+        <datatype>varchar</datatype>
+        <columnTitle>Ethnicity</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="dob">
+        <datatype>varchar</datatype>
+        <columnTitle>Date of Birth</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="gender">
+        <datatype>varchar</datatype>
+        <columnTitle>Gender</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="ohsuMRN">
+        <datatype>varchar</datatype>
+        <columnTitle>OHSU MRN</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="race">
+        <datatype>varchar</datatype>
+        <columnTitle>Race</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="vitalStatus">
+        <datatype>varchar</datatype>
+        <columnTitle>Vital Status</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="comment">
+        <datatype>varchar</datatype>
+        <columnTitle>Comment</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="RDWIndicator">
+        <datatype>boolean</datatype>
+        <columnTitle>RDW Indicator</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#boolean</rangeURI>
+      </column>
+    </columns>
+    <tableTitle>Demographics</tableTitle>
+  </table>
+  <table tableName="wgs" tableDbType="TABLE">
+    <description>Contains up to one row of wgs (Whole Genome Data) data for each Patient/Date/genomeId combination.</description>
+    <columns>
+      <column columnName="patientId">
+        <datatype>varchar</datatype>
+        <columnTitle>Patient Id</columnTitle>
+        <description>Subject identifier</description>
+        <propertyURI>http://cpas.labkey.com/Study#ParticipantId</propertyURI>
+        <nullable>false</nullable>
+        <importAliases>
+          <importAlias>ptid</importAlias>
+        </importAliases>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>Patient</fkTable>
+          <fkColumnName>patientId</fkColumnName>
+        </fk>
+        <phi>PHI</phi>
+      </column>
+      <column columnName="sampleId">
+        <datatype>varchar</datatype>
+        <columnTitle>Sample Id</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+        <dimension>false</dimension>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>samples</fkTable>
+          <fkColumnName>sampleId</fkColumnName>
+        </fk>
+      </column>
+      <column columnName="readsetId">
+        <datatype>integer</datatype>
+        <columnTitle>Readset Id</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#int</rangeURI>
+        <dimension>false</dimension>
+        <measure>true</measure>
+        <fk>
+          <fkDbSchema>sequenceanalysis</fkDbSchema>
+          <fkTable>sequence_readsets</fkTable>
+          <fkColumnName>rowid</fkColumnName>
+        </fk>
+      </column>
+      <column columnName="date">
+        <datatype>timestamp</datatype>
+        <columnTitle>Date</columnTitle>
+        <propertyURI>http://cpas.labkey.com/Study#VisitDate</propertyURI>
+        <conceptURI>http://cpas.labkey.com/Study#VisitDate</conceptURI>
+        <nullable>false</nullable>
+        <formatString>yyyy-MM-dd HH:mm</formatString>
+      </column>
+      <column columnName="genomeId">
+        <datatype>integer</datatype>
+        <columnTitle>Genome Id</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#int</rangeURI>
+        <isHidden>true</isHidden>
+        <isKeyField>true</isKeyField>
+        <isAutoInc>true</isAutoInc>
+      </column>
+    </columns>
+    <tableTitle>Whole Genome Data</tableTitle>
+  </table>
+  <table tableName="rnaseq" tableDbType="TABLE">
+    <description>Contains up to one row of rnaseq (RNA-Seq) data for each Patient/Date/genomeId combination.</description>
+    <columns>
+      <column columnName="patientId">
+        <datatype>varchar</datatype>
+        <columnTitle>Patient Id</columnTitle>
+        <description>Subject identifier</description>
+        <propertyURI>http://cpas.labkey.com/Study#ParticipantId</propertyURI>
+        <nullable>false</nullable>
+        <importAliases>
+          <importAlias>ptid</importAlias>
+        </importAliases>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>Patient</fkTable>
+          <fkColumnName>patientId</fkColumnName>
+        </fk>
+        <phi>PHI</phi>
+      </column>
+      <column columnName="sampleId">
+        <datatype>varchar</datatype>
+        <columnTitle>Sample Id</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+        <dimension>false</dimension>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>samples</fkTable>
+          <fkColumnName>sampleId</fkColumnName>
+        </fk>
+      </column>
+      <column columnName="readsetId">
+        <datatype>integer</datatype>
+        <columnTitle>Readset Id</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#int</rangeURI>
+        <dimension>false</dimension>
+        <measure>true</measure>
+        <fk>
+          <fkDbSchema>sequenceanalysis</fkDbSchema>
+          <fkTable>sequence_readsets</fkTable>
+          <fkColumnName>rowid</fkColumnName>
+        </fk>
+      </column>
+      <column columnName="date">
+        <datatype>timestamp</datatype>
+        <columnTitle>Date</columnTitle>
+        <propertyURI>http://cpas.labkey.com/Study#VisitDate</propertyURI>
+        <conceptURI>http://cpas.labkey.com/Study#VisitDate</conceptURI>
+        <nullable>false</nullable>
+        <formatString>yyyy-MM-dd HH:mm</formatString>
+      </column>
+      <column columnName="genomeId">
+        <datatype>integer</datatype>
+        <columnTitle>Genome Id</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#int</rangeURI>
+        <isHidden>true</isHidden>
+        <isKeyField>true</isKeyField>
+        <isAutoInc>true</isAutoInc>
+      </column>
+    </columns>
+    <tableTitle>RNA-Seq</tableTitle>
+  </table>
+</tables>

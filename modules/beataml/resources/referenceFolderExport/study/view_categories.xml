@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<categories xmlns="http://labkey.org/study/xml/viewCategory">
+  <category label="Demographics" displayOrder="0"/>
+  <category label="Clinical" displayOrder="0"/>
+  <category label="Genomics" displayOrder="0"/>
+</categories>

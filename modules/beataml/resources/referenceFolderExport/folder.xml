@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<folder archiveVersion="15.2" label="BeatAML" type="normal" title="Beat AML" xmlns="http://labkey.org/folder/xml" xmlns:ns="http://labkey.org/study/xml">
+  <missingValueIndicators>
+    <ns:missingValueIndicator indicator="Q" label="Data currently under quality control review."/>
+    <ns:missingValueIndicator indicator="N" label="Required field marked by site as 'data not available'."/>
+  </missingValueIndicators>
+  <study dir="study"/>
+</folder>
