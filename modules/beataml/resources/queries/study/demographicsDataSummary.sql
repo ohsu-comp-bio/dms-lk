@@ -34,5 +34,5 @@ FROM (
   UNION
   SELECT b.patientId, 0 as hasRnaSeq, 1 as hasWGS, 0 as hasDrugResponse FROM study.wgs b
   UNION
-  SELECT c.patientId, 0 as hasRnaSeq, 0 as hasWGS, 0 as hasDrugResponse FROM study.drugResponse c
+  SELECT c.patientId, 0 as hasRnaSeq, 0 as hasWGS, 1 as hasDrugResponse FROM study.drugResponse c
 ) as total GROUP BY patientId
