@@ -7,6 +7,15 @@
     <dataset name="samples" id="5005" category="Clinical" type="Standard">
       <tags/>
     </dataset>
+    <dataset name="labResults" id="5006" category="Clinical" type="Standard">
+      <tags/>
+    </dataset>
+    <dataset name="drugResponseRaw" id="5007" category="Clinical" type="Standard">
+      <tags/>
+    </dataset>
+    <dataset name="drugResponse" id="5008" category="Clinical" type="Standard">
+      <tags/>
+    </dataset>
     <dataset name="demographics" id="5001" category="Demographics" demographicData="true" type="Standard">
       <tags/>
     </dataset>

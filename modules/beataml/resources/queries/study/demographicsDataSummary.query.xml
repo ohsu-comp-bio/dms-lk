@@ -1,0 +1,19 @@
+<query xmlns="http://labkey.org/data/xml/query">
+    <metadata>
+        <tables xmlns="http://labkey.org/data/xml">
+            <table tableName="" tableDbType="TABLE">
+                <columns>
+                    <column columnName="hasDrugResponse">
+                        <columnTitle>Has Drug Response Data?</columnTitle>
+                    </column>
+                    <column columnName="hasRnaSeq">
+                        <columnTitle>Has RNA-Seq Data?</columnTitle>
+                    </column>
+                    <column columnName="hasWgs">
+                        <columnTitle>Has WGS Data?</columnTitle>
+                    </column>
+                </columns>
+            </table>
+        </tables>
+    </metadata>
+</query>

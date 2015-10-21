@@ -204,6 +204,260 @@
     </columns>
     <tableTitle>Samples</tableTitle>
   </table>
+  <table tableName="labResults" tableDbType="TABLE">
+    <description>Contains up to one row of labResults (Lab Results) data for each Patient/Date/objectid combination.</description>
+    <columns>
+      <column columnName="patientId">
+        <datatype>varchar</datatype>
+        <columnTitle>Patient Id</columnTitle>
+        <description>Subject identifier</description>
+        <propertyURI>http://cpas.labkey.com/Study#ParticipantId</propertyURI>
+        <nullable>false</nullable>
+        <importAliases>
+          <importAlias>ptid</importAlias>
+        </importAliases>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>Patient</fkTable>
+          <fkColumnName>patientId</fkColumnName>
+        </fk>
+        <phi>PHI</phi>
+      </column>
+      <column columnName="sampleId">
+        <datatype>varchar</datatype>
+        <columnTitle>Specimen Id</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+        <dimension>false</dimension>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>samples</fkTable>
+          <fkColumnName>sampleId</fkColumnName>
+        </fk>
+      </column>
+      <column columnName="date">
+        <datatype>timestamp</datatype>
+        <columnTitle>Date</columnTitle>
+        <propertyURI>http://cpas.labkey.com/Study#VisitDate</propertyURI>
+        <conceptURI>http://cpas.labkey.com/Study#VisitDate</conceptURI>
+        <nullable>false</nullable>
+        <formatString>yyyy-MM-dd HH:mm</formatString>
+      </column>
+      <column columnName="labType">
+        <datatype>varchar</datatype>
+        <columnTitle>Lab Type</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="result">
+        <datatype>varchar</datatype>
+        <columnTitle>Result</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="objectid">
+        <datatype>entityid</datatype>
+        <columnTitle>Objectid</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+        <isHidden>true</isHidden>
+        <isKeyField>true</isKeyField>
+      </column>
+    </columns>
+    <tableTitle>Lab Results</tableTitle>
+  </table>
+  <table tableName="drugResponseRaw" tableDbType="TABLE">
+    <description>Contains up to one row of drugResponseRaw (Drug Response Raw Data) data for each Patient/Date/objectid combination.</description>
+    <columns>
+      <column columnName="patientId">
+        <datatype>varchar</datatype>
+        <columnTitle>Patient Id</columnTitle>
+        <description>Subject identifier</description>
+        <propertyURI>http://cpas.labkey.com/Study#ParticipantId</propertyURI>
+        <nullable>false</nullable>
+        <importAliases>
+          <importAlias>ptid</importAlias>
+        </importAliases>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>Patient</fkTable>
+          <fkColumnName>patientId</fkColumnName>
+        </fk>
+        <phi>PHI</phi>
+      </column>
+      <column columnName="sampleId">
+        <datatype>varchar</datatype>
+        <columnTitle>Sample Id</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+        <dimension>false</dimension>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>samples</fkTable>
+          <fkColumnName>sampleId</fkColumnName>
+        </fk>
+      </column>
+      <column columnName="date">
+        <datatype>timestamp</datatype>
+        <columnTitle>Date</columnTitle>
+        <propertyURI>http://cpas.labkey.com/Study#VisitDate</propertyURI>
+        <conceptURI>http://cpas.labkey.com/Study#VisitDate</conceptURI>
+        <nullable>false</nullable>
+        <formatString>yyyy-MM-dd HH:mm</formatString>
+      </column>
+      <column columnName="runType">
+        <datatype>varchar</datatype>
+        <columnTitle>Run Type</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="inhibitorPanel">
+        <datatype>varchar</datatype>
+        <columnTitle>Inhibitor Panel</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="drug">
+        <datatype>varchar</datatype>
+        <columnTitle>Drug</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="proprietary">
+        <datatype>varchar</datatype>
+        <columnTitle>Proprietary</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="replicant">
+        <datatype>integer</datatype>
+        <columnTitle>Replicant</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#int</rangeURI>
+      </column>
+      <column columnName="wellConcentration">
+        <datatype>double</datatype>
+        <columnTitle>Well Concentration</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#double</rangeURI>
+      </column>
+      <column columnName="normalizedViability">
+        <datatype>double</datatype>
+        <columnTitle>Normalized Viability (%)</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#double</rangeURI>
+      </column>
+      <column columnName="objectid">
+        <datatype>entityid</datatype>
+        <columnTitle>Objectid</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+        <isHidden>true</isHidden>
+        <isKeyField>true</isKeyField>
+      </column>
+    </columns>
+    <tableTitle>Drug Response Raw Data</tableTitle>
+  </table>
+  <table tableName="drugResponse" tableDbType="TABLE">
+    <description>Contains up to one row of drugResponse (Drug Response) data for each Patient/Date/objectid combination.</description>
+    <columns>
+      <column columnName="patientId">
+        <datatype>varchar</datatype>
+        <columnTitle>Patient Id</columnTitle>
+        <description>Subject identifier</description>
+        <propertyURI>http://cpas.labkey.com/Study#ParticipantId</propertyURI>
+        <nullable>false</nullable>
+        <importAliases>
+          <importAlias>ptid</importAlias>
+        </importAliases>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>Patient</fkTable>
+          <fkColumnName>patientId</fkColumnName>
+        </fk>
+        <phi>PHI</phi>
+      </column>
+      <column columnName="sampleId">
+        <datatype>varchar</datatype>
+        <columnTitle>Sample Id</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+        <dimension>false</dimension>
+        <fk>
+          <fkDbSchema>study</fkDbSchema>
+          <fkTable>samples</fkTable>
+          <fkColumnName>sampleId</fkColumnName>
+        </fk>
+      </column>
+      <column columnName="date">
+        <datatype>timestamp</datatype>
+        <columnTitle>Date</columnTitle>
+        <propertyURI>http://cpas.labkey.com/Study#VisitDate</propertyURI>
+        <conceptURI>http://cpas.labkey.com/Study#VisitDate</conceptURI>
+        <nullable>false</nullable>
+        <formatString>yyyy-MM-dd HH:mm</formatString>
+      </column>
+      <column columnName="runType">
+        <datatype>varchar</datatype>
+        <columnTitle>Run Type</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="inhibitorPanel">
+        <datatype>varchar</datatype>
+        <columnTitle>Inhibitor Panel</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="drug">
+        <datatype>varchar</datatype>
+        <columnTitle>Drug</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="proprietary">
+        <datatype>varchar</datatype>
+        <columnTitle>Proprietary</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="replicant">
+        <datatype>integer</datatype>
+        <columnTitle>Replicant</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#int</rangeURI>
+        <measure>false</measure>
+      </column>
+      <column columnName="IC10">
+        <datatype>double</datatype>
+        <columnTitle>IC10</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#double</rangeURI>
+        <measure>false</measure>
+      </column>
+      <column columnName="IC25">
+        <datatype>double</datatype>
+        <columnTitle>IC25</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#double</rangeURI>
+        <measure>false</measure>
+      </column>
+      <column columnName="IC50">
+        <datatype>double</datatype>
+        <columnTitle>IC50</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#double</rangeURI>
+        <measure>false</measure>
+      </column>
+      <column columnName="IC75">
+        <datatype>double</datatype>
+        <columnTitle>IC75</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#double</rangeURI>
+      </column>
+      <column columnName="IC90">
+        <datatype>double</datatype>
+        <columnTitle>IC90</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#double</rangeURI>
+      </column>
+      <column columnName="AUC">
+        <datatype>double</datatype>
+        <columnTitle>AUC</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#double</rangeURI>
+        <measure>false</measure>
+      </column>
+      <column columnName="modelCurve">
+        <datatype>varchar</datatype>
+        <columnTitle>Model Curve</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+      </column>
+      <column columnName="objectid">
+        <datatype>entityid</datatype>
+        <columnTitle>Objectid</columnTitle>
+        <rangeURI>http://www.w3.org/2001/XMLSchema#string</rangeURI>
+        <isHidden>true</isHidden>
+        <isKeyField>true</isKeyField>
+      </column>
+    </columns>
+    <tableTitle>Drug Response</tableTitle>
+  </table>
   <table tableName="demographics" tableDbType="TABLE">
     <description>Contains up to one row of demographics data for each Patient combination.</description>
     <columns>

@@ -1,0 +1,15 @@
+<customView xmlns="http://labkey.org/data/xml/queryCustomView">
+    <columns>
+        <column name="patientId"/>
+        <column name="lastName"/>
+        <column name="firstName"/>
+        <column name="ethnicity"/>
+        <column name="race"/>
+        <column name="dob"/>
+        <column name="gender"/>
+        <column name="vitalStatus"/>
+        <column name="patientId/dataSummary/hasDrugResponse"/>
+        <column name="patientId/dataSummary/hasRnaSeq"/>
+        <column name="patientId/dataSummary/hasWgs"/>
+    </columns>
+</customView>
