@@ -11,5 +11,6 @@
         <column name="patientId/dataSummary/hasDrugResponse"/>
         <column name="patientId/dataSummary/hasRnaSeq"/>
         <column name="patientId/dataSummary/hasWgs"/>
+        <column name="patientId/dataSummary/hasImages"/>
     </columns>
 </customView>

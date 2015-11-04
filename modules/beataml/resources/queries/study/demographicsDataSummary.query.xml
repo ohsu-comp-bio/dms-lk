@@ -5,12 +5,19 @@
                 <columns>
                     <column columnName="hasDrugResponse">
                         <columnTitle>Has Drug Response Data?</columnTitle>
+                        <url>/query/executeQuery.view?schemaName=study&amp;query.queryName=drugResponse&amp;query.patientId~eq=${patientId}</url>
                     </column>
                     <column columnName="hasRnaSeq">
                         <columnTitle>Has RNA-Seq Data?</columnTitle>
+                        <url>/query/executeQuery.view?schemaName=study&amp;query.queryName=rnaseq&amp;query.patientId~eq=${patientId}</url>
                     </column>
                     <column columnName="hasWgs">
                         <columnTitle>Has WGS Data?</columnTitle>
+                        <url>/query/executeQuery.view?schemaName=study&amp;query.queryName=wgs&amp;query.patientId~eq=${patientId}</url>
+                    </column>
+                    <column columnName="hasImages">
+                        <columnTitle>Has Image Data?</columnTitle>
+                        <url>/query/executeQuery.view?schemaName=study&amp;query.queryName=images&amp;query.patientId~eq=${patientId}</url>
                     </column>
                 </columns>
             </table>

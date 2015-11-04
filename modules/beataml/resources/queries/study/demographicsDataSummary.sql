@@ -27,12 +27,18 @@ END as hasWgs,
 CASE
   WHEN max(total.hasDrugResponse) = 1 THEN 'Y'
   ELSE NULL
-END as hasDrugResponse
+END as hasDrugResponse,
+CASE
+  WHEN max(total.hasImage) = 1 THEN 'Y'
+  ELSE NULL
+END as hasImages,
 
 FROM (
-  SELECT a.patientId, 1 as hasRnaSeq, 0 as hasWGS, 0 as hasDrugResponse FROM study.rnaseq a
+  SELECT a.patientId, 1 as hasRnaSeq, 0 as hasWGS, 0 as hasDrugResponse, 0 as hasImage FROM study.rnaseq a
   UNION
-  SELECT b.patientId, 0 as hasRnaSeq, 1 as hasWGS, 0 as hasDrugResponse FROM study.wgs b
+  SELECT b.patientId, 0 as hasRnaSeq, 1 as hasWGS, 0 as hasDrugResponse, 0 as hasImage FROM study.wgs b
   UNION
-  SELECT c.patientId, 0 as hasRnaSeq, 0 as hasWGS, 1 as hasDrugResponse FROM study.drugResponse c
+  SELECT c.patientId, 0 as hasRnaSeq, 0 as hasWGS, 1 as hasDrugResponse, 0 as hasImage FROM study.drugResponse c
+  UNION
+  SELECT d.patientId, 0 as hasRnaSeq, 0 as hasWGS, 0 as hasDrugResponse, 1 as hasImage FROM study.images d
 ) as total GROUP BY patientId

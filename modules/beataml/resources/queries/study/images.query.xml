@@ -1,0 +1,25 @@
+<query xmlns="http://labkey.org/data/xml/query">
+    <metadata>
+        <tables xmlns="http://labkey.org/data/xml">
+            <table tableName="" tableDbType="NOT_IN_DB" useColumnOrder="true">
+                <tableTitle>Images</tableTitle>
+                <columns>
+                    <column columnName="patientId">
+                        
+                    </column>
+                    <column columnName="date">
+                        
+                    </column>
+                    <column columnName="sampleId">
+
+                    </column>
+                    <column columnName="imageId">
+                        <displayColumnFactory>
+                            <className>org.labkey.omerointegration.OmeroDisplayColumFactory</className>
+                        </displayColumnFactory>
+                    </column>
+                </columns>
+            </table>
+        </tables>
+    </metadata>
+</query>
