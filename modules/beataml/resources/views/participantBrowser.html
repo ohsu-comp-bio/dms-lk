@@ -1,5 +1,11 @@
 <script type="text/javascript">
     Ext4.onReady(function (){
+        var participantId = LABKEY.ActionURL.getParameter('participantId') || LABKEY.ActionURL.getParameter('patientId');
+        if (!participantId){
+            alert('Must Provide Id');
+            return;
+        }
+
         Ext4.define('BeatAML.panel.TabbedReportPanel', {
             extend: 'LDK.panel.TabbedReportPanel',
 

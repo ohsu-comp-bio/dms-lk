@@ -59,7 +59,19 @@
                 inputValue: LDK.panel.SingleSubjectFilterType.filterName,
                 label: 'Single Participant',
                 hidden: true,
-                initialValue: participantId
+                initialValue: participantId,
+                getItems: function(){
+                    return [{
+                        xtype: 'panel',
+                        hidden: true,
+                        items: [{
+                            xtype: 'textfield',
+                            hidden: true,
+                            itemId: 'subjArea',
+                            value: this.initialValue
+                        }]
+                    }];
+                }
             }],
 
             getReportConfig: function(queryName, schemaName, category, title){
